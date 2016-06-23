@@ -5,15 +5,24 @@
 	<parent>
 		<artifactId>springfox-router-plugin</artifactId>
 		<groupId>io.github.synfirecloud</groupId>
-		<version>1.0-SNAPSHOT</version>
+		<version>1.0</version>
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
-
-	<artifactId>springfox-router-plugin-demo</artifactId>
+	<artifactId>springfox-router-plugin-demo-xml</artifactId>
+	<packaging>war</packaging>
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.resthub</groupId>
@@ -33,14 +42,21 @@
 		<dependency>
 			<groupId>io.github.synfirecloud</groupId>
 			<artifactId>springfox-router-plugin-core</artifactId>
-			<version>${version}</version>
+			<version>1.0</version>
 		</dependency>
 	</dependencies>
 	<build>
+		<finalName>springfox-router-plugin-demo-xml</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.2.11.v20150529</version>
 			</plugin>
 		</plugins>
 	</build>
